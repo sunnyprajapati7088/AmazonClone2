@@ -7,7 +7,7 @@ import ProductHeader from "./components/ProductHeader";
 import ProductGrid from "./components/ProductGrid";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
-import AddCartProducts from "./components/addCartProducts";
+import AddCartProducts from "./components/AddCartProducts";
 import ProcuctsSectionPage from "./pages/ProcuctsSectionPage";
 
 function App() {

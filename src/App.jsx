@@ -6,15 +6,20 @@ import Navbar from "./components/Navbar";
 import ProductHeader from "./components/ProductHeader";
 import ProductGrid from "./components/ProductGrid";
 import Carousel from "./components/Carousel";
+import Footer from "./components/Footer";
+import AddCartProducts from "./components/addCartProducts";
+import ProcuctsSectionPage from "./pages/ProcuctsSectionPage";
 
 function App() {
   return (
     <div>
       <Navbar />
       <ProductHeader />
-      <Carousel/>
-     <ProductGrid/>
-      
+      <Carousel />
+      <ProductGrid />
+      <ProcuctsSectionPage />
+      <AddCartProducts />
+      <Footer />
     </div>
   );
 }

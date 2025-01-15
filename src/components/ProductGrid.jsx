@@ -14,7 +14,7 @@ export default function ProductGrid() {
         },
         {
           title: "Samsung | Up to 60% off",
-          image:"https://m.media-amazon.com/images/I/71w-6dtBJlL._SX679_.jpg",
+          image: "https://m.media-amazon.com/images/I/71w-6dtBJlL._SX679_.jpg",
           discount: 60,
         },
       ],
@@ -24,12 +24,14 @@ export default function ProductGrid() {
       items: [
         {
           title: "Kitchen essentials",
-          image: "/kitchen.jpg",
+          image:
+            "https://m.media-amazon.com/images/I/511kS5yUxFL._SX300_SY300_QL70_FMwebp_.jpg",
           discount: 50,
         },
         {
           title: "Home decor",
-          image: "/decor.jpg",
+          image:
+            "https://m.media-amazon.com/images/I/511kS5yUxFL._SX300_SY300_QL70_FMwebp_.jpg",
           discount: 50,
         },
       ],
@@ -37,7 +39,7 @@ export default function ProductGrid() {
   ];
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-3 pl-4 pr-4">
       {products.map((category) => (
         <div key={category.category}>
           <h2 className="mb-4 text-xl font-bold text-gray-900">
@@ -45,7 +47,13 @@ export default function ProductGrid() {
           </h2>
           <div className="grid gap-4">
             {category.items.map((item) => (
-              <ProductCard key={item.title} />
+              <ProductCard
+                key={item.title}
+                title={item.title}
+                image={item.image}
+                discount={item.discount}
+                category={item.category}
+              />
             ))}
           </div>
         </div>

@@ -7,10 +7,11 @@ const Carousel = () => {
     return (
       <div
         id="carouselExampleControls"
-        className="carousel slide"
+        className="carousel slide "
         data-bs-ride="carousel"
+      
       >
-        <div className="carousel-inner">
+        <div className="carousel-inner h-[260px]">
           <div className="carousel-item active">
             <img
               className="d-block w-100"

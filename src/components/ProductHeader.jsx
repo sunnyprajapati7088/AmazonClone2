@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import LeftNavbar from "./LeftNavbar";
 const PRODUCTS = [
   "Fresh",
   "MX Player",
@@ -12,13 +14,21 @@ const PRODUCTS = [
   "Home & Kitchen",
 ];
 export default function ProductHeader() {
+const [isSidebar, setIsSideBar] = useState(false);
 
+function handleLeftSideBar() {
+  setIsSideBar((val) => !val);
+}
   return (
     <div className="relative flex w-full bg-[#232f3e] text-white">
+      {isSidebar ? <LeftNavbar setIsSideBar={setIsSideBar} /> : ""}
       {/* Navigation Container */}
       <div className="flex w-full items-center gap-1 overflow-x-auto scrollbar-hide">
         {/* All Menu */}
-        <button className="flex min-w-fit items-center gap-1 px-2 py-2 text-sm hover:outline hover:outline-1 hover:outline-white">
+        <button
+          onClick={() => handleLeftSideBar()}
+          className="flex min-w-fit items-center gap-1 px-2 py-2 text-sm hover:outline hover:outline-1 hover:outline-white"
+        >
           <svg
             className="h-4 w-4"
             viewBox="0 0 24 24"
@@ -36,13 +46,13 @@ export default function ProductHeader() {
         </button>
         {/* Navigation Links */}
         {PRODUCTS.map((item) => (
-          <a
+          <Link
             key={item}
-            href="#"
+            to={"/"}
             className="min-w-fit whitespace-nowrap px-2 py-2 text-sm hover:outline hover:outline-1 hover:outline-white"
           >
             {item}
-          </a>
+          </Link>
         ))}
 
         {/* Republic Day Sale Banner */}

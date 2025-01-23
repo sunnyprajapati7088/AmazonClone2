@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import LeftNavbar from "./LeftNavbar";
+import { useSelector } from "react-redux";
 
 const LANGUAGES = ["ENGLISH", "हिंदी", "தமிழ்"];
 const CATEGORYES = ["all", "electronics", "computers"];
@@ -8,9 +11,10 @@ export default function Navbar() {
   const [searchCategory, setSearchCategory] = useState("all");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-
+  const noOfCarts = useSelector((state) => state.cart.Cart).length;
   return (
-    <nav className="flex w-full flex-col bg-[#131921] text-white">
+    <nav className="flex w-full flex-col h-full bg-[#131921] text-white">
+   
       <div className="flex flex-wrap items-center gap-2 p-2 md:gap-4">
         <a href="/" className="flex-shrink-0">
           <img
@@ -138,7 +142,7 @@ export default function Navbar() {
       
 
         {/* Account & Lists */}
-        <div className="hidden lg:block">
+        <Link to={"/sign"}  className="hidden lg:block">
           <button className="flex flex-col items-start hover:outline hover:outline-1 hover:outline-white">
             <span className="text-xs text-gray-300">Hello, sign in</span>
             <span className="flex items-center gap-1 font-bold">
@@ -156,7 +160,7 @@ export default function Navbar() {
               </svg>
             </span>
           </button>
-        </div>
+        </Link>
 
         {/* Returns & Orders */}
         <a
@@ -170,8 +174,8 @@ export default function Navbar() {
         </a>
 
         {/* Cart */}
-        <a
-          href="/cart"
+        <Link
+          to={"/cart"}
           className="flex items-center gap-1 hover:outline hover:outline-1 hover:outline-white"
         >
           <div className="relative">
@@ -189,11 +193,11 @@ export default function Navbar() {
               <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
             </svg>
             <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#f08804] text-sm font-bold text-black">
-              0
+              {noOfCarts}
             </span>
           </div>
           <span className="hidden font-bold md:inline">Cart</span>
-        </a>
+        </Link>
       </div>
 
       {/* Mobile Location */}
@@ -212,6 +216,7 @@ export default function Navbar() {
         </svg>
         <span>Delivering to Mumbai 400001 - Update location</span>
       </button>
+  <Outlet/>
     </nav>
   );
 }

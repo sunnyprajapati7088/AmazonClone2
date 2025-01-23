@@ -1,9 +1,8 @@
 import CartProduct from "./CartProduct";
 import ProductCard from "./ProductCard";
-
-function AddCartProducts() {
-  const products = [
-    {
+const products = [
+  {
+      id:1,
       image:
         "https://m.media-amazon.com/images/I/415Q4Ji9XeL._SX300_SY300_QL70_FMwebp_.jpg",
       brand: "Havells",
@@ -17,7 +16,8 @@ function AddCartProducts() {
       deliveryDate: "Saturday, January 18",
       bought: "300+",
     },
-    {
+  {
+      id:3,
       image:
         "https://m.media-amazon.com/images/I/31QtilGEMjL._SX300_SY300_QL70_FMwebp_.jpg",
       brand: "Haier",
@@ -30,7 +30,8 @@ function AddCartProducts() {
       discountPercentage: 44,
       deliveryDate: "Monday, January 20",
     },
-    {
+  {
+      id:6,
       image: "https://m.media-amazon.com/images/I/61DzZlYGoCL._SY741_.jpg",
       brand: "Havells",
       title:
@@ -42,7 +43,8 @@ function AddCartProducts() {
       discountPercentage: 34,
       deliveryDate: "Saturday, January 18",
     },
-    {
+  {
+      id:5,
       image:
         "https://m.media-amazon.com/images/I/31Tz8DcmevL._SX300_SY300_QL70_FMwebp_.jpg",
       brand: "Havells",
@@ -56,7 +58,8 @@ function AddCartProducts() {
       deliveryDate: "Saturday, January 18",
       bought: "5K+",
     },
-    {
+  {
+      id:4,
       image:
         "https://m.media-amazon.com/images/I/31Tz8DcmevL._SX300_SY300_QL70_FMwebp_.jpg",
       brand: "Havells",
@@ -70,6 +73,8 @@ function AddCartProducts() {
       options: 2,
     },
   ];
+function AddCartProducts() {
+ 
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 p-5 bg-gray-50">
@@ -81,3 +86,4 @@ function AddCartProducts() {
 }
 
 export default AddCartProducts;
+

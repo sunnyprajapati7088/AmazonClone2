@@ -2,6 +2,7 @@ import React from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Outlet } from 'react-router-dom';
 
 const Carousel = () => {
     return (
@@ -59,6 +60,7 @@ const Carousel = () => {
           <span className="visually-hidden">Next</span>
         </button>
         </div>
+        <Outlet/>
         </div>
     );
 };

@@ -1,4 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addCart } from "../Slice/Cart";
 function CartProduct({ product }) {
+  const cartData = useSelector((state) => state.cart)
+  console.log(cartData)
+  const dispatch = useDispatch();
+  function handleAddToCart() {
+    dispatch(addCart(product));
+  }
   const {
     image,
     brand,
@@ -52,34 +60,33 @@ function CartProduct({ product }) {
           </span>
         </div>
 
-        {bought && (
-          <div className="text-xs text-gray-600 mb-2">
-            {bought} bought in past month
-          </div>
-        )}
+      
 
         <div className="mb-2">
           <div className="flex items-baseline gap-2">
             <span className="text-sm text-[#CC0C39]">
               -{discountPercentage}%
             </span>
-            <span className="text-2xl font-medium">
+            <span className="text-2xl font-medium text-black">
               ₹{formatPrice(discountedPrice)}
             </span>
-            <sup className="text-xs">00</sup>
+       
           </div>
           <div className="text-xs text-gray-600">
             M.R.P.:{" "}
-            <span className="line-through">₹{formatPrice(originalPrice)}</span>
+            <span className="line-through text-black">
+              ₹{formatPrice(originalPrice)}
+            </span>
           </div>
         </div>
 
-        <div className="text-sm mb-4">
+        <div className="text-sm mb-4 text-black">
           Get it by {deliveryDate}
           <div className="text-gray-600">FREE Delivery by Amazon</div>
         </div>
 
         <button
+          onClick={(product) => handleAddToCart()}
           className={`w-full py-2 px-4 text-sm rounded-full 
             ${
               options > 1
